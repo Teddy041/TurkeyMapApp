@@ -1,0 +1,57 @@
+/* =============================================
+   SVG Harita Stilleri
+   ============================================= */
+.turkey-map-svg {
+    width: 92%;
+    height: auto;
+    display: block;
+    max-height: 62vh;
+    margin: 0 auto;
+}
+
+.provinces-group .province {
+    fill: var(--color-province);
+    stroke: var(--color-province-stroke);
+    stroke-width: 0.5;
+    cursor: pointer;
+    transition: fill var(--transition-speed) var(--transition-easing),
+                stroke var(--transition-speed) var(--transition-easing),
+                opacity var(--transition-speed) var(--transition-easing),
+                transform var(--transition-speed) var(--transition-easing),
+                filter var(--transition-speed) var(--transition-easing);
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+/* Hover durumu: diğer iller soluklaşır */
+.provinces-group.is-hovering .province:not(.is-hovered) {
+    opacity: 0.5;
+}
+
+/* Hover edilen il: büyüme, mavi renk, gölge */
+.provinces-group .province.is-hovered {
+    fill: var(--color-province-hover);
+    stroke: var(--color-province-hover-stroke);
+    stroke-width: 1;
+    transform: scale(1.15);
+    filter: drop-shadow(0 4px 8px var(--color-shadow));
+    opacity: 1;
+}
+
+/* Harita yükleme durumu */
+.map-container.is-loading {
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-container.is-loading::after {
+    content: 'Harita yükleniyor...';
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+.map-container.is-loaded .turkey-map-svg {
+    opacity: 1;
+}

@@ -1,0 +1,52 @@
+/* =============================================
+   CSS Değişkenleri - Light & Dark Mode
+   ============================================= */
+:root {
+    /* Renk paleti - Açık tema */
+    --color-bg: #f0f4f8;
+    --color-bg-card: #ffffff;
+    --color-bg-header: #ffffff;
+    --color-text: #1e293b;
+    --color-text-muted: #64748b;
+    --color-border: #e2e8f0;
+    --color-accent: #2563eb;
+    --color-accent-light: #3b82f6;
+    --color-accent-dark: #1d4ed8;
+    --color-province: #cbd5e1;
+    --color-province-stroke: #94a3b8;
+    --color-province-hover: #2563eb;
+    --color-province-hover-stroke: #1d4ed8;
+    --color-shadow: rgba(37, 99, 235, 0.35);
+    --color-tooltip-bg: #1e293b;
+    --color-tooltip-text: #f8fafc;
+    --color-stat-icon: #dbeafe;
+
+    /* Animasyon */
+    --transition-speed: 300ms;
+    --transition-easing: ease-in-out;
+
+    /* Boyutlar */
+    --header-height: 64px;
+    --border-radius: 12px;
+    --border-radius-sm: 8px;
+}
+
+[data-theme="dark"] {
+    --color-bg: #0f172a;
+    --color-bg-card: #1e293b;
+    --color-bg-header: #1e293b;
+    --color-text: #f1f5f9;
+    --color-text-muted: #94a3b8;
+    --color-border: #334155;
+    --color-accent: #3b82f6;
+    --color-accent-light: #60a5fa;
+    --color-accent-dark: #2563eb;
+    --color-province: #334155;
+    --color-province-stroke: #475569;
+    --color-province-hover: #3b82f6;
+    --color-province-hover-stroke: #60a5fa;
+    --color-shadow: rgba(59, 130, 246, 0.45);
+    --color-tooltip-bg: #f8fafc;
+    --color-tooltip-text: #1e293b;
+    --color-stat-icon: #1e3a5f;
+}

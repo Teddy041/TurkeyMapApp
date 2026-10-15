@@ -1,0 +1,54 @@
+/* =============================================
+   Tooltip Stilleri
+   ============================================= */
+.map-tooltip {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+    background: var(--color-tooltip-bg);
+    color: var(--color-tooltip-text);
+    padding: 0.75rem 1rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 150ms ease, transform 150ms ease;
+    min-width: 160px;
+    backdrop-filter: blur(4px);
+}
+
+.map-tooltip.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.map-tooltip__name {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 0.35rem;
+    color: var(--color-tooltip-text);
+}
+
+.map-tooltip__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0.15rem 0;
+}
+
+.map-tooltip__label {
+    opacity: 0.7;
+}
+
+.map-tooltip__value {
+    font-weight: 600;
+}
+
+.map-tooltip__count {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-accent-light);
+    margin-top: 0.25rem;
+}

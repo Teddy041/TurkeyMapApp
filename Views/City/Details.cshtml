@@ -1,0 +1,74 @@
+@model TurkeyMapApp.Models.ViewModels.CityDetailViewModel
+@{
+    ViewData["Title"] = Model.City.Name;
+    ViewData["DocumentTitle"] = Model.City.Name;
+    Layout = "_Layout";
+}
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<link rel="stylesheet" href="~/css/city-detail.css" asp-append-version="true" />
+
+<div class="city-detail">
+    <a href="/" class="back-link" data-i18n="backToMap">← Haritaya Dön</a>
+
+    <!-- Şehir başlık -->
+    <header class="city-hero">
+        <div class="city-hero__image">
+            <img src="@Model.CityImageUrl"
+                 alt="@Model.City.Name"
+                 loading="lazy"
+                 data-fallback="@Model.CityImageFallback"
+                 onerror="if(this.dataset.fallback){this.onerror=null;this.src=this.dataset.fallback;}" />
+        </div>
+        <div class="city-hero__info">
+            <h1 class="city-hero__title">@Model.City.Name</h1>
+            <p class="city-hero__meta">
+                <span data-i18n-plate data-plate="@Model.City.PlateCode.ToString("D2")">Plaka: @Model.City.PlateCode.ToString("D2")</span>
+                <span data-region="@Model.City.Region">@Model.City.Region</span>
+            </p>
+            <div class="city-hero__stats">
+                <div class="city-stat">
+                    <span class="city-stat__value" id="total-places">@Model.TotalPlaces</span>
+                    <span class="city-stat__label" data-i18n="placesToVisit">Gezilecek Yer</span>
+                </div>
+                <div class="city-stat">
+                    <span class="city-stat__value">@Model.Categories.Count()</span>
+                    <span class="city-stat__label" data-i18n="category">Kategori</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Kategoriler -->
+    @if (Model.Categories.Any())
+    {
+        <section class="category-section">
+            <h2 class="section-title" data-i18n="categories">Kategoriler</h2>
+            <div class="category-chips">
+                <button class="category-chip category-chip--active" data-category="all" data-i18n="all">Tümü</button>
+                @foreach (var category in Model.Categories)
+                {
+                    <button class="category-chip" data-category="@category" data-i18n-category>@category</button>
+                }
+            </div>
+        </section>
+    }
+
+    <!-- Leaflet Harita -->
+    <section class="map-section-detail">
+        <h2 class="section-title" data-i18n="locationMap">Konum Haritası</h2>
+        <div id="leaflet-map" class="leaflet-map" data-plate-code="@Model.City.PlateCode"></div>
+    </section>
+
+    <!-- Yer kartları (AJAX ile lazy-load) -->
+    <section class="places-section">
+        <h2 class="section-title" data-i18n="placesTitle">Gezilecek Yerler</h2>
+        <div id="places-loading" class="places-loading" data-i18n="placesLoading">Yerler yükleniyor...</div>
+        <div id="places-grid" class="places-grid"></div>
+    </section>
+</div>
+
+@section Scripts {
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="~/js/city-detail.js" asp-append-version="true"></script>
+}

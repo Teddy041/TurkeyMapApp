@@ -1,0 +1,87 @@
+﻿@model TurkeyMapApp.Models.MapViewModel
+@{
+    ViewData["Title"] = "Türkiye Haritası";
+    ViewData["DocumentTitleKey"] = "homeTitle";
+    Layout = "_Layout";
+}
+
+<div class="dashboard">
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="dashboard-header__brand">
+            <div class="dashboard-header__logo">TR</div>
+            <div>
+                <h1 class="dashboard-header__title" data-i18n="appTitle">Türkiye İnteraktif Harita</h1>
+                <p class="dashboard-header__subtitle" data-i18n="appSubtitle">81 il · SVG tabanlı interaktif dashboard</p>
+            </div>
+        </div>
+        <div class="dashboard-header__actions">
+            <select id="lang-select" class="lang-select" data-i18n-aria="language" aria-label="Dil">
+                <option value="tr">TR</option>
+                <option value="en">EN</option>
+                <option value="de">DE</option>
+            </select>
+            <button id="theme-toggle" class="theme-toggle" data-i18n-aria="toggleTheme" aria-label="Tema değiştir">
+                <span id="theme-toggle-icon">🌙</span>
+                <span id="theme-toggle-label" class="theme-toggle__label">Koyu Mod</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- İstatistik Kartları -->
+    <section class="stats-grid" data-i18n-aria="statsLabel" aria-label="Genel istatistikler">
+        <div class="stat-card">
+            <div class="stat-card__icon">🗺️</div>
+            <div>
+                <p class="stat-card__label" data-i18n="totalProvinces">Toplam İl</p>
+                <p class="stat-card__value">@Model.TotalProvinces</p>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-card__icon">👥</div>
+            <div>
+                <p class="stat-card__label" data-i18n="totalPopulation">Toplam Nüfus</p>
+                <p class="stat-card__value">@Model.TotalPopulation.ToString("N0")</p>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-card__icon">📍</div>
+            <div>
+                <p class="stat-card__label" data-i18n="mapType">Harita Tipi</p>
+                <p class="stat-card__value">SVG</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Harita Bölümü -->
+    <section class="map-section">
+        <div class="map-card">
+            <div class="map-card__header">
+                <h2 class="map-card__title" data-i18n="mapTitle">Türkiye Cumhuriyeti Haritası</h2>
+                <span class="map-card__hint" data-i18n="mapHint">İllerin üzerine gelin veya tıklayarak detayları görün</span>
+            </div>
+
+            <!-- SVG harita buraya JS ile yüklenir -->
+            <div id="map-container" class="map-container" role="img" data-i18n-aria="mapAria" aria-label="Türkiye haritası"></div>
+
+            <!-- Seçili il bilgi paneli -->
+            <div id="selected-city-panel" class="selected-city-panel">
+                <span class="selected-city-panel__placeholder" data-i18n="selectPlaceholder">Bir ile tıklayarak gezilecek yerleri keşfedin.</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="dashboard-footer">
+        &copy; @DateTime.Now.Year - <span data-i18n="footer">Türkiye Haritası · ASP.NET Core MVC</span>
+    </footer>
+</div>
+
+<!-- Tooltip (fare pozisyonunu takip eder) -->
+<div id="map-tooltip" class="map-tooltip" role="tooltip" aria-hidden="true"></div>
+
+<!-- Controller'dan gelen il verileri (JSON) -->
+<script id="city-data" type="application/json">@Html.Raw(ViewBag.CityDataJson)</script>
+
+@section Scripts {
+    <script src="~/js/turkey-map.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,15 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Türkiye Haritası</title>
+    <link rel="stylesheet" href="~/css/turkey-map.css" asp-append-version="true" />
+    <script src="~/js/i18n.js" asp-append-version="true"></script>
+    <script src="~/js/theme-toggle.js" asp-append-version="true"></script>
+</head>
+<body data-document-title-key="@(ViewData["DocumentTitleKey"] ?? "")" data-document-title="@(ViewData["DocumentTitle"] ?? "")">
+    @RenderBody()
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

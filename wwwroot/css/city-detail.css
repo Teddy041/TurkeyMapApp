@@ -1,0 +1,246 @@
+/* =============================================
+   Şehir Detay Sayfası Stilleri
+   ============================================= */
+
+.city-detail {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem 3rem;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-accent);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    transition: opacity var(--transition-speed) var(--transition-easing);
+}
+
+.back-link:hover {
+    opacity: 0.8;
+}
+
+/* Hero bölümü */
+.city-hero {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2rem;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.city-hero__image img {
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+.city-hero__info {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.city-hero__title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    color: var(--color-text);
+}
+
+.city-hero__meta {
+    display: flex;
+    gap: 1rem;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin: 0 0 1.5rem;
+}
+
+.city-hero__stats {
+    display: flex;
+    gap: 2rem;
+}
+
+.city-stat__value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+.city-stat__label {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+/* Kategoriler */
+.section-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 1rem;
+    color: var(--color-text);
+}
+
+.category-section {
+    margin-bottom: 2rem;
+}
+
+.category-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.category-chip {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    color: var(--color-text);
+    transition: all var(--transition-speed) var(--transition-easing);
+}
+
+.category-chip:hover,
+.category-chip--active {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #fff;
+}
+
+/* Leaflet harita */
+.map-section-detail {
+    margin-bottom: 2rem;
+}
+
+.leaflet-map {
+    height: 450px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.leaflet-popup-content {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.leaflet-popup-content strong {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Yer kartları */
+.places-loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--color-text-muted);
+}
+
+.places-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.25rem;
+}
+
+.place-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: transform var(--transition-speed) var(--transition-easing),
+                box-shadow var(--transition-speed) var(--transition-easing);
+    animation: statSlideIn 400ms ease-out backwards;
+}
+
+.place-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px var(--color-shadow);
+}
+
+.place-card__image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    background: var(--color-stat-icon);
+}
+
+.place-card__body {
+    padding: 1rem 1.25rem 1.25rem;
+}
+
+.place-card__category {
+    display: inline-block;
+    background: var(--color-stat-icon);
+    color: var(--color-accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.place-card__name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    color: var(--color-text);
+}
+
+.place-card__desc {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin: 0 0 0.75rem;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.place-card__address,
+.place-card__coords {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin: 0.25rem 0;
+}
+
+.place-card__coords {
+    font-family: 'Consolas', monospace;
+}
+
+@media (max-width: 768px) {
+    .city-detail {
+        padding: 1rem;
+    }
+
+    .city-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .city-hero__image img {
+        min-height: 200px;
+    }
+
+    .places-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .leaflet-map {
+        height: 300px;
+    }
+}
