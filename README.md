@@ -16,6 +16,8 @@ Sayfalardaki fotoğraflar o yerin gerçek fotoğrafı değil; yeri temsil eden �
 
 Sağ üstten aydınlık ya da karanlık görünüm seçiliyor. Dil de Türkçe, İngilizce veya Almanca olabiliyor. Bu seçimler tarayıcıda hatırlanıyor.
 
+Şimdilik gezilecek yerler uygulama ile birlikte geliyor. İleriki güncellemelerde siteye sade bir panel eklenecek. Bu panelden yeni yerler, kod yazmadan, doğrudan web sitesi üzerinden girilebilecek.
+
 ## Nasıl açılır
 
 Bilgisayarda [.NET 10](https://dotnet.microsoft.com/download) yüklü olmalı.
