@@ -1,24 +1,34 @@
 # TurkeyMapApp
 
-Türkiye’nin 81 ilini gösteren bir harita uygulaması. İl sınırları SVG; bir ilin üstüne gelince plaka ve gezilecek yer sayısı çıkıyor, tıklayınca o ilin sayfası açılıyor.
+Türkiye’nin 81 ilini gösteren bir harita sitesi.
 
-İl sayfasında yerler kart olarak listeleniyor, kategoriye göre süzülüyor ve Leaflet haritasında işaretleniyor. Veriler SQLite’ta. İlk çalıştırmada migration ve seed kendisi yapılıyor.
+Ana sayfada illerin sınırları çizili bir Türkiye haritası var. Farenle bir ilin üstüne gelince ilin adı, plaka numarası ve o ilde kaç gezilecek yer olduğu çıkıyor. İle tıklayınca o ilin kendi sayfası açılıyor.
 
-Arayüz açık ve koyu temayı hatırlıyor. Dil seçimi TR, EN ve DE.
+İl sayfasında şunlar var:
 
-## Çalıştırmak
+- Gezilecek yerler kartlar halinde listeleniyor
+- Müze, plaj, tarihi yer gibi kategorilere göre süzülebiliyor
+- Yerler bir konum haritasında iğneyle işaretleniyor; haritayı yakınlaştırıp uzaklaştırabiliyorsun
 
-.NET 10 SDK kurulu olmalı.
+Bilgiler uygulamayla birlikte geliyor. İlk açılışta veritabanı kendiliğinden hazırlanıyor.
+
+Sağ üstten aydınlık ya da karanlık görünüm seçiliyor. Dil de Türkçe, İngilizce veya Almanca olabiliyor. Bu seçimler tarayıcıda hatırlanıyor.
+
+## Nasıl açılır
+
+Bilgisayarda [.NET 10](https://dotnet.microsoft.com/download) yüklü olmalı.
+
+Proje klasöründe:
 
 ```bash
 dotnet run
 ```
 
-Tarayıcıda `http://localhost:5008`.
+Sonra tarayıcıda şu adresi aç: `http://localhost:5008`
 
-## Yığın
+## Ne ile yapıldı
 
-- ASP.NET Core MVC
-- Entity Framework Core, SQLite
-- SVG harita
-- Leaflet
+- Web sitesi: ASP.NET Core
+- Veritabanı: SQLite (bilgisayarda tutulan küçük bir veritabanı)
+- Ana harita: illerin çizildiği bir vektör resim (SVG). Bu, Google Street View değil; tıklanabilen bir Türkiye çizimi
+- İl sayfasındaki konum haritası: Leaflet. Yerler normal bir harita üzerinde işaretleniyor
