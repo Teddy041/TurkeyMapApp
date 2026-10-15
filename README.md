@@ -12,6 +12,8 @@ Ana sayfada illerin sınırları çizili bir Türkiye haritası var. Farenle bir
 
 Bilgiler uygulamayla birlikte geliyor. İlk açılışta veritabanı kendiliğinden hazırlanıyor.
 
+Sayfalardaki fotoğraflar o yerin gerçek fotoğrafı değil; yeri temsil eden örnek görseller. Gerçek fotoğraflar projenin dosya boyutunu gereksiz yere büyüteceği için sade tutuldu. Görsel yüklenemezse yerine kategoriye uygun basit bir çizim geliyor.
+
 Sağ üstten aydınlık ya da karanlık görünüm seçiliyor. Dil de Türkçe, İngilizce veya Almanca olabiliyor. Bu seçimler tarayıcıda hatırlanıyor.
 
 ## Nasıl açılır
